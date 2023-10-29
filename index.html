@@ -17,49 +17,43 @@
     a wip
   </h2>
 
-  <div id="images-container">
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const body = document.body;
-        const totalImages = 4;
+  <div id="images-container"> </div>
 
-        let imageRow;
-        for (let i = 1; i <= totalImages; i++) {
-          if (i % 2 === 1) {
-            imageRow = document.createElement('div');
-            imageRow.className = 'imageRow';
-            body.appendChild(imageRow);
-          }
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const imagesContainer = document.getElementById('images-container');
+      const totalImages = 4;
 
-          const imageWrapper = document.createElement('div');
-          imageWrapper.className = 'imageWrapper';
+      for (let i = 1; i <= totalImages; i++) {
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = 'imageWrapper';
 
-          const img = document.createElement('img');
-          img.src = `img-data/image${i}.jpeg`;
+        const img = document.createElement('img');
+        img.src = `img-data/image${i}.jpeg`;
 
-          const randomMargin = (Math.random() * 20) - 10;
-          imageWrapper.style.marginTop = `${randomMargin}px`;
-          imageWrapper.style.marginBottom = `${randomMargin}px`;
+        const randomMargin = (Math.random() * 20) - 10;
+        imageWrapper.style.marginTop = `${randomMargin}px`;
+        imageWrapper.style.marginBottom = `${randomMargin}px`;
 
-          const randomRotate = (Math.random() * 6) - 3;
-          imageWrapper.style.transform = `rotate(${randomRotate}deg)`;
+        const randomRotate = (Math.random() * 6) - 3;
+        imageWrapper.style.transform = `rotate(${randomRotate}deg)`;
 
-          imageWrapper.appendChild(img);
+        imageWrapper.appendChild(img);
 
-          fetch(`img-data/image${i}.txt`)
-            .then(response => response.text())
-            .then(text => {
-              const caption = document.createElement('div');
-              caption.className = 'caption';
-              caption.textContent = text;
-              imageWrapper.appendChild(caption);
-            });
+        fetch(`img-data/image${i}.txt`)
+          .then(response => response.text())
+          .then(text => {
+            const caption = document.createElement('div');
+            caption.className = 'caption';
+            caption.textContent = text;
+            imageWrapper.appendChild(caption);
+          });
 
-          imageRow.appendChild(imageWrapper);
-        }
-      });
-    </script>
-  </div>
+        imagesContainer.appendChild(imageWrapper);
+      }
+    });
+  </script>
+
 </body>
 
 </html>

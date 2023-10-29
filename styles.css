@@ -24,28 +24,39 @@ h2 {
   text-align: center;
 }
 
-.imageRow {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0 70px;
+/* Main container for all the images in CSS grid layout. */
+#images-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+  justify-items: center;
 }
 
-img {
-  margin: 20px 85px;
-  transition: transform 0.3s;
-  max-width: 500px;
-  height: auto;
-}
-
-.caption {
-  text-align: center;
-  font-family: "ImpactLabelReversed", monospace, sans-serif;
-  font-size: 0.9em;
-  margin-top: 3px;
-}
-
+/* Wraps each image and its caption. */
 .imageWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Style for all images */
+img {
+  max-width: 500px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+/* Style for all image captions */
+.caption {
+  text-align: center;
+  font-family: "ImpactLabelReversed", monospace, sans-serif;
+  font-size: 0.9em;
+  margin-top: 15px;
+}
+
+/* Adjusting grid layout for mobile-view (to 1 column grid layout). */
+@media (max-width: 768px) {
+  #images-container {
+    grid-template-columns: 1fr;
+  }
 }
