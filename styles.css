@@ -10,24 +10,29 @@
 
 h1 {
   font-family: "ImpactLabel", monospace, sans-serif;
-  /* Use the custom font, with fallbacks */
   font-size: 2em;
-  /* Make the font size larger */
   padding: 40px 0 5px;
-  /* Add some vertical padding */
   background-color: #fff;
-  /* A white background */
   text-align: center;
 }
 
 h2 {
   font-family: "ImpactLabelReversed", monospace, sans-serif;
-  /* Use the custom font, with fallbacks */
   font-size: 1em;
-  /* Make the font size larger */
   padding: 5px 0 40px;
-  /* Add some vertical padding */
   background-color: #fff;
-  /* A white background */
   text-align: center;
+}
+
+.imageRow {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 70px;
+}
+
+img {
+  margin: 20px 85px;
+  transition: transform 0.3s;
+  max-width: 500px;
+  height: auto;
 }
