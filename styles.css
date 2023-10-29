@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "ImpactLabel";
+  src: url("fonts/impact-label.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ImpactLabelReversed";
+  src: url("fonts/impact-label-rev.ttf") format("truetype");
+}
+
+h1 {
+  font-family: "ImpactLabel", monospace, sans-serif;
+  /* Use the custom font, with fallbacks */
+  font-size: 2em;
+  /* Make the font size larger */
+  padding: 40px 0 5px;
+  /* Add some vertical padding */
+  background-color: #fff;
+  /* A white background */
+  text-align: center;
+}
+
+h2 {
+  font-family: "ImpactLabelReversed", monospace, sans-serif;
+  /* Use the custom font, with fallbacks */
+  font-size: 1em;
+  /* Make the font size larger */
+  padding: 5px 0 40px;
+  /* Add some vertical padding */
+  background-color: #fff;
+  /* A white background */
+  text-align: center;
+}
