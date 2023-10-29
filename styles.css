@@ -68,4 +68,10 @@ img {
   #images-container {
     grid-template-columns: 1fr;
   }
+
+  img {
+    max-width: 300px;
+    height: auto;
+    transition: transform 0.3s;
+  }
 }
