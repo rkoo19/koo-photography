@@ -31,17 +31,31 @@
             body.appendChild(imageRow);
           }
 
+          const imageWrapper = document.createElement('div');
+          imageWrapper.className = 'imageWrapper';
+
           const img = document.createElement('img');
           img.src = `img-data/image${i}.jpeg`;
 
-          const randomMargin = (Math.random() * 20) - 10;  // Random margin between -10 and 10
-          img.style.marginTop = `${randomMargin}px`;
-          img.style.marginBottom = `${randomMargin}px`;
+          const randomMargin = (Math.random() * 20) - 10;
+          imageWrapper.style.marginTop = `${randomMargin}px`;
+          imageWrapper.style.marginBottom = `${randomMargin}px`;
 
-          const randomRotate = (Math.random() * 6) - 3;  // Random rotation between -5 and 5 degrees
-          img.style.transform = `rotate(${randomRotate}deg)`;
+          const randomRotate = (Math.random() * 6) - 3;
+          imageWrapper.style.transform = `rotate(${randomRotate}deg)`;
 
-          imageRow.appendChild(img);
+          imageWrapper.appendChild(img);
+
+          fetch(`img-data/image${i}.txt`)
+            .then(response => response.text())
+            .then(text => {
+              const caption = document.createElement('div');
+              caption.className = 'caption';
+              caption.textContent = text;
+              imageWrapper.appendChild(caption);
+            });
+
+          imageRow.appendChild(imageWrapper);
         }
       });
     </script>

@@ -36,3 +36,16 @@ img {
   max-width: 500px;
   height: auto;
 }
+
+.caption {
+  text-align: center;
+  font-family: "ImpactLabelReversed", monospace, sans-serif;
+  font-size: 0.9em;
+  margin-top: 3px;
+}
+
+.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
