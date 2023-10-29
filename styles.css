@@ -24,6 +24,13 @@ h2 {
   text-align: center;
 }
 
+/* Style for all images */
+img {
+  max-width: 500px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
 /* Main container for all the images in CSS grid layout. */
 #images-container {
   display: grid;
@@ -38,13 +45,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Style for all images */
-img {
-  max-width: 500px;
-  height: auto;
-  transition: transform 0.3s;
 }
 
 /* Style for all image captions */
@@ -63,6 +63,55 @@ img {
   margin-top: 2px;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Distribute children evenly */
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.modal-image {
+  max-width: 45%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.modal-description {
+  flex: 1;
+  font-size: 1.2em;
+  font-family: "ImpactLabel", monospace, sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Adjusting grid layout for mobile-view (to 1 column grid layout). */
 @media (max-width: 768px) {
   #images-container {
@@ -73,5 +122,25 @@ img {
     max-width: 300px;
     height: auto;
     transition: transform 0.3s;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-image {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .modal-description {
+    flex: 1;
+    font-size: 0.8em;
+    font-family: "ImpactLabel", monospace, sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

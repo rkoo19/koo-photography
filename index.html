@@ -19,6 +19,14 @@
 
   <div id="images-container"> </div>
 
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img class="modal-image" src="">
+      <div class="modal-description"></div>
+    </div>
+  </div>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const imagesContainer = document.getElementById('images-container');
@@ -43,7 +51,7 @@
         fetch(`img-data/image${i}.txt`)
           .then(response => response.text())
           .then(text => {
-            const [captionText, dateText] = text.split('\n'); // Split the text by newline
+            const [captionText, dateText] = text.split('\n');
 
             const caption = document.createElement('div');
             caption.className = 'caption';
@@ -58,6 +66,33 @@
 
         imagesContainer.appendChild(imageWrapper);
       }
+
+      document.querySelectorAll('.imageWrapper img').forEach((img, index) => {
+        img.addEventListener('click', () => {
+          const modal = document.getElementById('myModal');
+          const modalImg = modal.querySelector('.modal-image');
+          const modalDesc = modal.querySelector('.modal-description');
+
+          modalImg.src = img.src;
+
+          fetch(`img-data/image${index + 1}.txt`)
+            .then(response => response.text())
+            .then(text => {
+              console.log("Fetched content:", text);
+              const lines = text.split('\n');
+              if (lines[2]) {
+                modalDesc.textContent = lines[2];
+              }
+            });
+
+          modal.style.display = "block";
+        });
+      });
+
+      // Close the modal when the close button is clicked
+      document.querySelector('.close').addEventListener('click', () => {
+        document.getElementById('myModal').style.display = "none";
+      });
     });
   </script>
 
