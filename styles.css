@@ -30,6 +30,7 @@ h2 {
   grid-template-columns: repeat(2, 1fr);
   gap: 70px;
   justify-items: center;
+  margin-bottom: 50px;
 }
 
 /* Wraps each image and its caption. */
@@ -52,6 +53,14 @@ img {
   font-family: "ImpactLabelReversed", monospace, sans-serif;
   font-size: 0.9em;
   margin-top: 15px;
+}
+
+/* Style for all image dates */
+.date {
+  text-align: center;
+  font-family: "ImpactLabelReversed", monospace, sans-serif;
+  font-size: 0.7em;
+  margin-top: 2px;
 }
 
 /* Adjusting grid layout for mobile-view (to 1 column grid layout). */

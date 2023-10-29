@@ -43,10 +43,17 @@
         fetch(`img-data/image${i}.txt`)
           .then(response => response.text())
           .then(text => {
+            const [captionText, dateText] = text.split('\n'); // Split the text by newline
+
             const caption = document.createElement('div');
             caption.className = 'caption';
-            caption.textContent = text;
+            caption.textContent = captionText;
             imageWrapper.appendChild(caption);
+
+            const date = document.createElement('div');
+            date.className = 'date';
+            date.textContent = dateText;
+            imageWrapper.appendChild(date);
           });
 
         imagesContainer.appendChild(imageWrapper);
